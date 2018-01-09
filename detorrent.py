@@ -1,5 +1,6 @@
 import binascii
 import argparse
+import json
 from deben import decode
 
 
@@ -43,7 +44,8 @@ def main():
     parser = argparse.ArgumentParser(description='A tool for decoding bit-torrent file')
     parser.add_argument('-t', '--torrent', type=str, required=True, help='the torrent path')
     args = parser.parse_args()
-    print(parse_torrent(args.torrent))
+    parsed = parse_torrent(args.torrent)
+    print(json.dumps(parsed, indent=4))
 
 
 if __name__ == '__main__':
