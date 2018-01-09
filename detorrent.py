@@ -40,8 +40,8 @@ def b2s_list(lst, encoding):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='A tool to decode torrent file')
-    parser.add_argument('-t', '--torrent', type=str, required=True, help='torrent path')
+    parser = argparse.ArgumentParser(description='A tool for decoding bit-torrent file')
+    parser.add_argument('-t', '--torrent', type=str, required=True, help='the torrent path')
     args = parser.parse_args()
     print(parse_torrent(args.torrent))
 

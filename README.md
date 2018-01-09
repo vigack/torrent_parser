@@ -1,4 +1,4 @@
-usage: detorrent.py [-h] -t TORRENT
+usage: python detorrent.py [-h] -t TORRENT
 
 A tool to decode torrent file
 
