@@ -1,4 +1,5 @@
 import binascii
+import argparse
 from deben import decode
 
 
@@ -36,3 +37,14 @@ def b2s_list(lst, encoding):
     for x in lst:
         res.append(b2s(x, encoding))
     return res
+
+
+def main():
+    parser = argparse.ArgumentParser(description='A tool to decode torrent file')
+    parser.add_argument('-t', '--torrent', type=str, required=True, help='torrent path')
+    args = parser.parse_args()
+    print(parse_torrent(args.torrent))
+
+
+if __name__ == '__main__':
+    main()
