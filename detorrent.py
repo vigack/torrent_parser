@@ -45,7 +45,7 @@ def main():
     parser.add_argument('-t', '--torrent', type=str, required=True, help='the torrent path')
     args = parser.parse_args()
     parsed = parse_torrent(args.torrent)
-    print(json.dumps(parsed, indent=4))
+    print(json.dumps(parsed, indent=4, ensure_ascii=False))
 
 
 if __name__ == '__main__':
