@@ -13,7 +13,7 @@ def decode_int(x, ptr):
         num = int(x[ptr+1:end])
         return num, end+1
     except ValueError:
-        raise UnValidBencodeSourceException
+        raise InValidBencodeSourceException
 
 
 def decode_str(x, ptr):
@@ -23,7 +23,7 @@ def decode_str(x, ptr):
         string = x[idx+1:idx+count+1]
         return string, idx+count+1
     except ValueError:
-        raise UnValidBencodeSourceException
+        raise InValidBencodeSourceException
 
 
 def decode_list(x, ptr):
@@ -35,7 +35,7 @@ def decode_list(x, ptr):
             lst.append(v)
         return lst, ptr + 1
     except ValueError:
-        raise UnValidBencodeSourceException
+        raise InValidBencodeSourceException
 
 
 def decode_dict(x, ptr):
@@ -48,7 +48,7 @@ def decode_dict(x, ptr):
             dct[key] = val
         return dct, ptr + 1
     except ValueError:
-        raise UnValidBencodeSourceException
+        raise InValidBencodeSourceException
 
 
 FUNC_MAP = {
@@ -68,6 +68,6 @@ FUNC_MAP = {
 }
 
 
-class UnValidBencodeSourceException(Exception):
+class InValidBencodeSourceException(Exception):
     def __init__(self, err='Not a valid bencode source!'):
         Exception.__init__(self, err)
